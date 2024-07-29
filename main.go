@@ -16,7 +16,7 @@ func main() {
 	mux.HandleFunc("/{id}", func(w http.ResponseWriter, r *http.Request) {
 		id := r.PathValue("id")
 		w.Header().Set("Content-Type", "application/json")
-		if rand.Intn(2) == 0 {
+		if rand.Intn(10) <= 1 {
 			w.WriteHeader(http.StatusInternalServerError)
 		} else {
 			w.WriteHeader(http.StatusOK)
